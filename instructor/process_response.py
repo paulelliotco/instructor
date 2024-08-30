@@ -358,7 +358,7 @@ def handle_response_model(
                 You must only respond in JSON format that adheres to the following schema:
 
                 <JSON_SCHEMA>
-                {json.dumps(response_model.model_json_schema(), indent=2)}
+                {json.dumps(response_model.model_json_schema(), indent=2, ensure_ascii=False)}
                 </JSON_SCHEMA>
                 """
                 new_kwargs["system"] = dedent(new_kwargs["system"])
@@ -366,7 +366,7 @@ def handle_response_model(
                 new_kwargs["system"] += dedent(f"""
                 You must only respond in JSON format that adheres to the following schema:
                 <JSON_SCHEMA>
-                 {json.dumps(response_model.model_json_schema(), indent=2, ensure_ascii=True)}
+                 {json.dumps(response_model.model_json_schema(), indent=2, ensure_ascii=False)}
                 </JSON_SCHEMA>
                 """)
 
