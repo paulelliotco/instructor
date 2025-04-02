@@ -9,6 +9,8 @@ from .util import models, modes
 
 
 def uppercase_validator(v):
+    if v is None:
+        return v  # Return None as is to avoid AttributeError
     if v.islower():
         raise ValueError("Name must be ALL CAPS")
     return v
